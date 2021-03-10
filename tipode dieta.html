@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue.js</title>
+</head>
+<body>
+ <div id="app">
+      <h1>{{titulo}}</h1>
+      <input type="text" v-model= "nuevaDieta" @keyup.enter="agregarDieta">
+      <button @click="agregarDieta">Nombre de Dieta</button>
+
+    <ul>
+
+        <li v-for="dieta of dietas">
+            <input type="number" v-model.number="dieta.kcal">
+         {{dieta.nombre}} 
+         <button @click="dieta.kcal++">+</button>
+         <span v-if="dieta.kcal <= 1500"> - Sin Valores</span>
+         
+        </li>
+    </ul>
+ <h4>TOTAL : {{sumarKcal}}</h4>
+    
+ 
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="tipo de dieta.js"></script>
+</body>
+</html>
